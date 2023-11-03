@@ -4,10 +4,10 @@ import { Reducer } from "react";
 const AppContext = createContext();
 
 const AppProvider = ({ children }) => {
-  const API = "https://hn.algolia.com/api/v1/search?query=html";
+  const API = "https://hn.algolia.com/api/v1/search?";
 
   const initialState = {
-    query: "html",
+    query: "css",
     nbPages: 0,
     page: 0,
     hits: [],
@@ -20,14 +20,14 @@ const AppProvider = ({ children }) => {
     try {
       const res = await fetch(url);
       const data = await res.json();
-      console.log("fetched", data.hits);
+      console.log("fetched", data);
     } catch (error) {
       console.log(error);
     }
   };
 
   useEffect(() => {
-    fetchApiData(API);
+    fetchApiData(`${API}query=${state.query}`);
   }, []);
   return <AppContext.Provider value={"dayal"}>{children}</AppContext.Provider>;
 };
