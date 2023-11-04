@@ -33,13 +33,19 @@ const AppProvider = ({ children }) => {
     }
   };
 
+  const searchPost = (searchQuery) => {
+    dispatch({ type: "SEARCH_QUERY", payload: searchQuery });
+  };
+
   useEffect(() => {
     fetchApiData(`${API}query=${state.query}&page=${state.page}`);
-  }, []);
+  }, [state.query]);
 
   return (
     <div>
-      <AppContext.Provider value={{ ...state }}>{children}</AppContext.Provider>
+      <AppContext.Provider value={{ ...state, searchPost }}>
+        {children}
+      </AppContext.Provider>
     </div>
   );
 };
