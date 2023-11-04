@@ -17,13 +17,13 @@ const reducer = (state, action) => {
     case "PREV_PAGE": {
       return {
         ...state,
-        page: state.page - 1,
+        page: state.page < 1 ? 49 : state.page - 1,
       };
     }
     case "NEXT_PAGE": {
       return {
         ...state,
-        page: state.page + 1,
+        page: state.page > 48 ? 0 : state.page + 1,
       };
     }
   }

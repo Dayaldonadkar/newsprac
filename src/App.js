@@ -7,6 +7,7 @@ const App = () => {
   return (
     <div className="flex justify-center bg-[#E0F4FF]">
       <div className="flex flex-col items-center">
+        <h1 className="pt-5 text-2xl">Hackernews</h1>
         <Search />
         <Pagination />
         <Stories />

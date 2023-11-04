@@ -6,18 +6,18 @@ const Pagination = () => {
   console.log(page, "p");
 
   return (
-    <div className="flex">
+    <div className="flex space-x-5 items-center">
       <button
-        className="bg-black text-white px-3 py-1"
+        className="bg-black text-white px-3 py-1 rounded-sm"
         onClick={() => prevPage()}
       >
         PREV
       </button>
       <p>
-        {page} of {nbPages}
+        {page + 1} of {nbPages}
       </p>
       <button
-        className="bg-black text-white px-3 py-1"
+        className="bg-black text-white px-3 py-1 rounded-sm"
         onClick={() => nextPage()}
       >
         NEXT

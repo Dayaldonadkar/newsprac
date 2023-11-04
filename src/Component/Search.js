@@ -7,7 +7,8 @@ const Search = () => {
     <div className="py-5">
       <form action="">
         <input
-          className="pl-3 py-2 "
+          className="pl-3 py-2 w-72 rounded-md"
+          placeholder="search here"
           type="text"
           value={query}
           onChange={(e) => searchPost(e.target.value)}
