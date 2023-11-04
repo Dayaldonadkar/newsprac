@@ -5,6 +5,7 @@ const reducer = (state, action) => {
       return {
         ...state,
         hits: action.payload.hits,
+        nbPages: action.payload.nbPages,
       };
 
     case "SEARCH_QUERY":
@@ -12,6 +13,19 @@ const reducer = (state, action) => {
         ...state,
         query: action.payload,
       };
+
+    case "PREV_PAGE": {
+      return {
+        ...state,
+        page: state.page - 1,
+      };
+    }
+    case "NEXT_PAGE": {
+      return {
+        ...state,
+        page: state.page + 1,
+      };
+    }
   }
 
   return state;
