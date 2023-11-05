@@ -49,7 +49,7 @@ const AppProvider = ({ children }) => {
 
   useEffect(() => {
     fetchApiData(`${API}query=${state.query}&page=${state.page}`);
-  }, [state.query, state.page]);
+  }, [state.query, state.pages]);
 
   return (
     <div>
