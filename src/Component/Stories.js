@@ -7,7 +7,7 @@ const Stories = () => {
     <div className="flex justify-center">
       <div className="w-[90%] space-y-5 py-8">
         {hits.map((currNews) => {
-          const { author, title, num_comments } = currNews;
+          const { author, title, num_comments, url } = currNews;
           return (
             <div className="bg-white px-5 py-3 rounded-xl">
               <div className="flex flex-col justify-around h-36">
@@ -17,8 +17,11 @@ const Stories = () => {
                   <p>{num_comments} comments</p>
                 </div>
                 <div className="flex justify-between">
-                  <p>Read more</p>
-                  <button>Remove</button>
+                  <p className="text-red-300">
+                    <a href={url}>Read more</a>
+                  </p>
+
+                  {/* <button>Remove</button> */}
                 </div>
               </div>
             </div>
