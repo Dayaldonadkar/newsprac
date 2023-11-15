@@ -1,5 +1,5 @@
 import React, { createContext, useContext, useEffect, useReducer } from "react";
-import reducer from "../reducer";
+import reducer from "./reducer";
 
 const AppContext = createContext();
 
