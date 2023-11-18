@@ -3,10 +3,15 @@ import { useGLobalContext } from "../Context/Context";
 
 const Search = () => {
   const { query, searchPost } = useGLobalContext();
+
+  const Prevent = (e) => {
+    e.preventDefault();
+  };
   return (
     <div className="py-5">
-      <form action="">
+      <form action="" onSubmit={Prevent}>
         <input
+          onSubmit={() => Prevent()}
           className="pl-3 py-2 w-72 rounded-md"
           placeholder="search here"
           type="text"

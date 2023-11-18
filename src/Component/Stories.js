@@ -1,13 +1,29 @@
-import React, { useEffect } from "react";
+import React from "react";
 import { useGLobalContext } from "../Context/Context";
+import Loading from "./Loading";
 
 const Stories = () => {
-  const { hits } = useGLobalContext();
+  const { hits, isLoading } = useGLobalContext();
+  if (isLoading) {
+    return (
+      <div className="h-screen relative top-40">
+        <Loading />
+      </div>
+    );
+  }
+
+  if (hits.length < 1) {
+    return <div className="h-screen relative top-40">Query Not Available</div>;
+  }
+
   return (
     <div className="flex justify-center">
       <div className="w-[90%] space-y-5 py-8">
         {hits.map((currNews) => {
           const { author, title, num_comments, url } = currNews;
+          // console.log("curr", hits);
+          console.log("lenght", hits.length);
+
           return (
             <div className="bg-white px-5 py-3 rounded-xl">
               <div className="flex flex-col justify-around h-36">
@@ -16,7 +32,6 @@ const Stories = () => {
                 ) : (
                   <h1 className="text-xl">Title is not available</h1>
                 )}
-
                 <div className="flex">
                   <p className="pr-3 mr-3 border-r-2">By {author}</p>
                   <p>{num_comments} comments</p>
